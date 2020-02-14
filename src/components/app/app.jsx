@@ -13,15 +13,22 @@ const App = ({errorsCount, questions}) => {
   return (
     <BrowserRouter>
       <Switch>
+
         <Route exact path="/">
           <WelcomeScreen
             errorsCount={errorsCount}
             onWelcomeButtonClick={handleWelcomeButton}
           />
         </Route>
+
         <Route exact path="/artist">
-          <ArtistQuestionScreen />
+          <ArtistQuestionScreen
+
+            question={questions[1]}
+            onAnswer={handleAnswer}
+          />
         </Route>
+
         <Route exact path="/genre">
           <GenreQuestionScreen
 
@@ -29,6 +36,7 @@ const App = ({errorsCount, questions}) => {
             onAnswer={handleAnswer}
           />
         </Route>
+
       </Switch>
     </BrowserRouter>
   );
