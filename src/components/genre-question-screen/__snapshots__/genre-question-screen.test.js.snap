@@ -62,7 +62,7 @@ exports[`Render <GenrequestionScreen /> 1`] = `
       className="game__title"
     >
       Выберите 
-      Rock
+      rock
        треки
     </h2>
     <form
