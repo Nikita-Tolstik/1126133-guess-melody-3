@@ -5,7 +5,7 @@ import {GameType} from '../../const.js';
 
 const question = {
   type: GameType.GENRE,
-  genre: `Rock`,
+  genre: `rock`,
   answers: [
     {
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
