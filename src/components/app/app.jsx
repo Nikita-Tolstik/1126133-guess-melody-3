@@ -1,47 +1,110 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import ArtistQuestionScreen from '../artist-question-screen/artist-question-screen.jsx';
 import GenreQuestionScreen from '../genre-question-screen/genre-question-screen.jsx';
 import WelcomeScreen from '../welcome-screen/welcome-screen.jsx';
 import PropTypes from 'prop-types';
+import {GameType} from '../../const.js';
 
-const handleWelcomeButton = () => {};
-const handleAnswer = () => {};
 
-const App = ({errorsCount, questions}) => {
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  return (
-    <BrowserRouter>
-      <Switch>
+    this.state = {
+      step: -1,
+    };
+  }
 
-        <Route exact path="/">
-          <WelcomeScreen
-            errorsCount={errorsCount}
-            onWelcomeButtonClick={handleWelcomeButton}
-          />
-        </Route>
 
-        <Route exact path="/artist">
-          <ArtistQuestionScreen
+  render() {
+    const {questions} = this.props;
 
-            question={questions[1]}
-            onAnswer={handleAnswer}
-          />
-        </Route>
+    return (
+      <BrowserRouter>
+        <Switch>
 
-        <Route exact path="/genre">
-          <GenreQuestionScreen
+          <Route exact path="/">
+            {this._renderGameScreen()}
+          </Route>
 
-            question={questions[0]}
-            onAnswer={handleAnswer}
-          />
-        </Route>
+          <Route exact path={`/${GameType.ARTIST}`}>
+            <ArtistQuestionScreen
 
-      </Switch>
-    </BrowserRouter>
-  );
+              question={questions[1]}
+              onAnswer={() => {}}
+            />
+          </Route>
 
-};
+          <Route exact path={`/${GameType.GENRE}`}>
+            <GenreQuestionScreen
+
+              question={questions[0]}
+              onAnswer={() => {}}
+            />
+          </Route>
+
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+
+
+  _renderGameScreen() {
+
+    const {errorsCount, questions} = this.props;
+    const {step} = this.state;
+    const question = questions[step];
+
+    if (step === -1 || step >= questions.length) {
+      return (
+        <WelcomeScreen
+          errorsCount={errorsCount}
+          onWelcomeButtonClick={() => {
+            this.setState({
+              step: 0,
+            });
+          }}
+        />
+      );
+    }
+
+
+    if (question) {
+
+      switch (question.type) {
+        case GameType.ARTIST:
+          return (
+            <ArtistQuestionScreen
+
+              question={question}
+              onAnswer={() => {
+                this.setState((prevState) => ({
+                  step: prevState.step + 1,
+                }));
+              }}
+            />
+          );
+
+        case GameType.GENRE:
+          return (
+            <GenreQuestionScreen
+
+              question={question}
+              onAnswer={() => {
+                this.setState((prevState) => ({
+                  step: prevState.step + 1,
+                }));
+              }}
+            />
+          );
+      }
+    }
+
+    return null;
+  }
+
+}
 
 App.propTypes = {
 
