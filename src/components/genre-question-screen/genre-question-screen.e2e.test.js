@@ -32,7 +32,7 @@ const mock = {
   },
 };
 
-it(`When user answers genre question form is not sent`, () => {
+it(`When user answers genre question form is not sent - e2e`, () => {
 
   const {question} = mock;
   const onAnswer = jest.fn();
@@ -56,10 +56,10 @@ it(`When user answers genre question form is not sent`, () => {
   expect(formSendPrevention).toHaveBeenCalledTimes(1);
 });
 
-it(`User answer passed to callback is consistent with "userAnswer" prop`, () => {
+it(`User answer passed to callback is consistent with "userAnswer" prop - e2e`, () => {
   const {question} = mock;
   const onAnswer = jest.fn((...args) => [...args]);
-  const userAnswer = [false, true, false, false];
+  const userAnswer = [false, false, false, false];
 
   const genreQuestion = shallow(
 

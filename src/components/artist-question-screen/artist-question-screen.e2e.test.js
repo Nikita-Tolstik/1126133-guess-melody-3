@@ -36,7 +36,7 @@ const mockEvent = {
   preventDefault() {}
 };
 
-it(`User chose answer, check correct data`, () => {
+it(`User chose answer, check correct data - e2e`, () => {
   const {question} = mock;
   const onAnswer = jest.fn((...args) => [...args]);
   const answer = {
