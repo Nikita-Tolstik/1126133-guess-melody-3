@@ -16,40 +16,6 @@ class App extends PureComponent {
     };
   }
 
-
-  render() {
-    const {questions} = this.props;
-
-    return (
-      <BrowserRouter>
-        <Switch>
-
-          <Route exact path="/">
-            {this._renderGameScreen()}
-          </Route>
-
-          <Route exact path={`/${GameType.ARTIST}`}>
-            <ArtistQuestionScreen
-
-              question={questions[1]}
-              onAnswer={() => {}}
-            />
-          </Route>
-
-          <Route exact path={`/${GameType.GENRE}`}>
-            <GenreQuestionScreen
-
-              question={questions[0]}
-              onAnswer={() => {}}
-            />
-          </Route>
-
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-
-
   _renderGameScreen() {
 
     const {errorsCount, questions} = this.props;
@@ -104,7 +70,41 @@ class App extends PureComponent {
     return null;
   }
 
+
+  render() {
+    const {questions} = this.props;
+
+    return (
+      <BrowserRouter>
+        <Switch>
+
+          <Route exact path="/">
+            {this._renderGameScreen()}
+          </Route>
+
+          <Route exact path={`/${GameType.ARTIST}`}>
+            <ArtistQuestionScreen
+
+              question={questions[1]}
+              onAnswer={() => {}}
+            />
+          </Route>
+
+          <Route exact path={`/${GameType.GENRE}`}>
+            <GenreQuestionScreen
+
+              question={questions[0]}
+              onAnswer={() => {}}
+            />
+          </Route>
+
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+
 }
+
 
 App.propTypes = {
 
