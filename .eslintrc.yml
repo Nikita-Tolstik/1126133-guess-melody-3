@@ -18,3 +18,44 @@ plugins: ['react']
 settings:
   react:
     version: '16'
+
+rules: {
+ react/sort-comp: [2, {
+     order: [
+    'constructor',
+    'lifecycle',
+    'everything-else',
+    'render',
+    'static-methods',
+   ],
+
+   groups: {
+    lifecycle: [
+      'displayName',
+      'propTypes',
+      'contextTypes',
+      'childContextTypes',
+      'mixins',
+      'statics',
+      'defaultProps',
+      'constructor',
+      'getDefaultProps',
+      'state',
+      'getInitialState',
+      'getChildContext',
+      'componentWillMount',
+      'UNSAFE_componentWillMount',
+      'componentDidMount',
+      'componentWillReceiveProps',
+      'UNSAFE_componentWillReceiveProps',
+      'shouldComponentUpdate',
+      'componentWillUpdate',
+      'UNSAFE_componentWillUpdate',
+      'getSnapshotBeforeUpdate',
+      'componentDidUpdate',
+      'componentDidCatch',
+      'componentWillUnmount'
+      ]
+    }
+  }],
+}
