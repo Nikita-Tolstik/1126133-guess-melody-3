@@ -48,6 +48,7 @@ it(`User chose answer, check correct data - e2e`, () => {
       <ArtistQuestionScreen
         question={question}
         onAnswer={onAnswer}
+        renderPlayer={() => {}}
       />
   );
 

@@ -36,12 +36,14 @@ it(`When user answers genre question form is not sent - e2e`, () => {
 
   const {question} = mock;
   const onAnswer = jest.fn();
+  const renderPlayer = jest.fn();
 
   const genreQuestion = shallow(
 
       <GenreQuestionScreen
         onAnswer={onAnswer}
         question={question}
+        renderPlayer={renderPlayer}
       />
   );
 
@@ -60,12 +62,14 @@ it(`User answer passed to callback is consistent with "userAnswer" prop - e2e`, 
   const {question} = mock;
   const onAnswer = jest.fn((...args) => [...args]);
   const userAnswer = [false, false, false, false];
+  const renderPlayer = jest.fn();
 
   const genreQuestion = shallow(
 
       <GenreQuestionScreen
         onAnswer={onAnswer}
         question={question}
+        renderPlayer={renderPlayer}
       />
   );
 
