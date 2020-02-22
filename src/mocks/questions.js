@@ -6,19 +6,19 @@ export default [
     genre: `rock`,
     answers: [
       {
-        src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+        src: `https://dl2.mp3party.net/online/9162354.mp3`,
         genre: `rock`,
       },
       {
-        src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+        src: `https://dl2.mp3party.net/online/9162354.mp3`,
         genre: `blues`,
       },
       {
-        src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+        src: `https://dl2.mp3party.net/online/9162354.mp3`,
         genre: `jazz`,
       },
       {
-        src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+        src: `https://dl2.mp3party.net/online/9162354.mp3`,
         genre: `rock`,
       }
     ],
@@ -28,7 +28,7 @@ export default [
     type: `artist`,
     song: {
       artist: `Jim Beam`,
-      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      src: `https://dl2.mp3party.net/online/9162354.mp3`,
     },
     answers: [
       {

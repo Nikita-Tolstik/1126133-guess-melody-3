@@ -35,8 +35,12 @@ it(`Render <ArtistQuestionScreen />`, () => {
 
         onAnswer={() => {}}
         question={question}
-      />
-  ).toJSON();
+        renderPlayer={() => {}}
+      />, {
+        createNodeMock: () => {
+          return {};
+        }
+      }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

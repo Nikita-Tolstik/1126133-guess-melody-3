@@ -33,6 +33,7 @@ it(`Render <GenrequestionScreen />`, () => {
 
       question={question}
       onAnswer={() => {}}
+      renderPlayer={() => {}}
     />
   ), {
     createNodeMock: () => {
