@@ -32,7 +32,7 @@ export default [
     },
     answers: [
       {
-        picture: `${AVATAR_URL}/A}`,
+        picture: `${AVATAR_URL}/A`,
         artist: `John Snow`,
       },
       {

@@ -3,37 +3,48 @@ import {reducer, ActionType, ActionCreator} from './reducer.js';
 const questions = [
   {
     type: `genre`,
-    genre: `rock`,
-    answers: [{
-      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      genre: `rock`,
-    }, {
-      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      genre: `blues`,
-    }, {
-      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      genre: `jazz`,
-    }, {
-      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
-      genre: `rock`,
-    }],
-  }, {
+    genre: `l`,
+    answers: [
+      {
+        src: `https://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/86/aa/20/86aa201c-fe6c-1fc5-f296-0d7872cf8458/mzaf_8723992036832723658.plus.aac.p.m4a`,
+        genre: `rock`,
+      },
+      {
+        src: `https://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/86/aa/20/86aa201c-fe6c-1fc5-f296-0d7872cf8458/mzaf_8723992036832723658.plus.aac.p.m4a`,
+        genre: `blues`,
+      },
+      {
+        src: `https://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/86/aa/20/86aa201c-fe6c-1fc5-f296-0d7872cf8458/mzaf_8723992036832723658.plus.aac.p.m4a`,
+        genre: `jazz`,
+      },
+      {
+        src: `https://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/86/aa/20/86aa201c-fe6c-1fc5-f296-0d7872cf8458/mzaf_8723992036832723658.plus.aac.p.m4a`,
+        genre: `rock`,
+      }
+    ],
+  },
+
+  {
     type: `artist`,
     song: {
       artist: `Jim Beam`,
-      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      src: `https://dl2.mp3party.net/online/9162354.mp3`,
     },
-    answers: [{
-      picture: `https://api.adorable.io/avatars/128/A`,
-      artist: `John Snow`,
-    }, {
-      picture: `https://api.adorable.io/avatars/128/AB`,
-      artist: `Jack Daniels`,
-    }, {
-      picture: `https://api.adorable.io/avatars/128/AC`,
-      artist: `Jim Beam`,
-    }],
-  },
+    answers: [
+      {
+        picture: `https://api.adorable.io/avatars/128/A`,
+        artist: `John Snow`,
+      },
+      {
+        picture: `https://api.adorable.io/avatars/128/AB`,
+        artist: `Jack Daniels`,
+      },
+      {
+        picture: `https://api.adorable.io/avatars/128/AC`,
+        artist: `Jim Beam`,
+      }
+    ],
+  }
 ];
 
 it(`Reducer without additional parameters should return initial state`, () => {
