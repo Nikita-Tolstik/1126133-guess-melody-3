@@ -1,51 +1,41 @@
-import {reducer, ActionType, ActionCreator} from './reducer.js';
+import {reducer, ActionCreator, ActionType} from "./reducer.js";
 
 const questions = [
   {
     type: `genre`,
-    genre: `l`,
-    answers: [
-      {
-        src: `https://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/86/aa/20/86aa201c-fe6c-1fc5-f296-0d7872cf8458/mzaf_8723992036832723658.plus.aac.p.m4a`,
-        genre: `rock`,
-      },
-      {
-        src: `https://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/86/aa/20/86aa201c-fe6c-1fc5-f296-0d7872cf8458/mzaf_8723992036832723658.plus.aac.p.m4a`,
-        genre: `blues`,
-      },
-      {
-        src: `https://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/86/aa/20/86aa201c-fe6c-1fc5-f296-0d7872cf8458/mzaf_8723992036832723658.plus.aac.p.m4a`,
-        genre: `jazz`,
-      },
-      {
-        src: `https://audio.itunes.apple.com/apple-assets-us-std-000001/AudioPreview71/v4/86/aa/20/86aa201c-fe6c-1fc5-f296-0d7872cf8458/mzaf_8723992036832723658.plus.aac.p.m4a`,
-        genre: `rock`,
-      }
-    ],
-  },
-
-  {
+    genre: `rock`,
+    answers: [{
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      genre: `rock`,
+    }, {
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      genre: `blues`,
+    }, {
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      genre: `jazz`,
+    }, {
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      genre: `rock`,
+    }],
+  }, {
     type: `artist`,
     song: {
       artist: `Jim Beam`,
-      src: `https://dl2.mp3party.net/online/9162354.mp3`,
+      src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     },
-    answers: [
-      {
-        picture: `https://api.adorable.io/avatars/128/A`,
-        artist: `John Snow`,
-      },
-      {
-        picture: `https://api.adorable.io/avatars/128/AB`,
-        artist: `Jack Daniels`,
-      },
-      {
-        picture: `https://api.adorable.io/avatars/128/AC`,
-        artist: `Jim Beam`,
-      }
-    ],
-  }
+    answers: [{
+      picture: `https://api.adorable.io/avatars/128/A`,
+      artist: `John Snow`,
+    }, {
+      picture: `https://api.adorable.io/avatars/128/AB`,
+      artist: `Jack Daniels`,
+    }, {
+      picture: `https://api.adorable.io/avatars/128/AC`,
+      artist: `Jim Beam`,
+    }],
+  },
 ];
+
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
@@ -55,7 +45,6 @@ it(`Reducer without additional parameters should return initial state`, () => {
     questions,
   });
 });
-
 
 it(`Reducer should increment current step by a given value`, () => {
   expect(reducer({
@@ -85,7 +74,6 @@ it(`Reducer should increment current step by a given value`, () => {
   });
 });
 
-
 it(`Reducer should increment number of mistakes by a given value`, () => {
   expect(reducer({
     step: -1,
@@ -107,6 +95,47 @@ it(`Reducer should increment number of mistakes by a given value`, () => {
   })).toEqual({
     step: -1,
     mistakes: 0,
+  });
+});
+
+it(`Reducer should return default`, () => {
+  expect(reducer({
+    step: 5,
+    mistakes: 1,
+  }, {
+    type: ActionType.RESET,
+    payload: null,
+  })).toEqual({
+    step: 0,
+    mistakes: 0,
+    maxMistakes: 3,
+    questions,
+  });
+
+  expect(reducer({
+    step: 0,
+    mistakes: 0,
+  }, {
+    type: ActionType.RESET,
+    payload: null,
+  })).toEqual({
+    step: 0,
+    mistakes: 0,
+    maxMistakes: 3,
+    questions,
+  });
+
+  expect(reducer({
+    step: -1,
+    mistakes: 0,
+  }, {
+    type: ActionType.RESET,
+    payload: null,
+  })).toEqual({
+    step: 0,
+    mistakes: 0,
+    maxMistakes: 3,
+    questions,
   });
 });
 
@@ -222,5 +251,13 @@ describe(`Action creators work correctly`, () => {
       type: ActionType.INCREMENT_MISTAKES,
       payload: 1,
     });
+  });
+
+  it(`Action creator for reset game returns action with null payload`, () => {
+    expect(ActionCreator.resetGame())
+      .toEqual({
+        type: ActionType.RESET,
+        payload: null,
+      });
   });
 });
