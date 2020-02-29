@@ -26,7 +26,7 @@ class GenreQuestionScreen extends PureComponent {
 
         <form className="game__tracks"
 
-          onSubmit= {(evt) => {
+          onSubmit={(evt) => {
             evt.preventDefault();
 
             onAnswer(question, this.state.answers);
@@ -48,8 +48,8 @@ class GenreQuestionScreen extends PureComponent {
 
                     const value = evt.target.checked;
 
-                    this.setState = ({
-                      answers: [...userAnswers.slice(0, i), value, ...userAnswers.slice(i + 1)]
+                    this.setState({
+                      answers: [...userAnswers.slice(0, i), value, ...userAnswers.slice(i + 1)],
                     });
                   }}
                 />
